@@ -273,6 +273,13 @@ HERMETO_IMAGE=ghcr.io/hermetoproject/hermeto:{tag} nox -s integration-tests
 HERMETO_IMAGE=localhost/hermeto:latest nox -s  integration-tests
 ```
 
+To run integration tests in parallel, use the -n option + the number of workers. To utilize all CPU cores, use auto as the number of workers. Examples:
+
+```shell
+nox -s integration-tests -- -n 4
+nox -s integration-tests -- -n auto
+```
+
 ### Adding new dependencies to the project
 
 Sometimes when working on adding a new feature you may need to add a new dependency to the project.
