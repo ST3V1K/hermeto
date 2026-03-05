@@ -14,7 +14,10 @@ from hermeto.core.config import get_config
 from hermeto.core.errors import LockfileNotFound, MissingChecksum, PackageRejected
 from hermeto.core.models.output import ProjectFile
 from hermeto.core.package_managers.general import async_download_files, patch_url_to_point_to_proxy
-from hermeto.core.package_managers.javascript.js_utils import clone_repo_pack_archive
+from hermeto.core.package_managers.javascript.js_utils import (
+    clone_repo_pack_archive,
+    parse_git_clone_url,
+)
 from hermeto.core.package_managers.javascript.npm.project import (
     PackageLock,
     ResolvedNpmPackage,
@@ -23,7 +26,6 @@ from hermeto.core.package_managers.javascript.npm.project import (
 from hermeto.core.package_managers.javascript.npm.utils import (
     NormalizedUrl,
     classify_resolved_url,
-    extract_git_info_npm,
     normalize_resolved_url,
 )
 from hermeto.core.rooted_path import RootedPath
@@ -48,8 +50,7 @@ def _clone_repo_pack_archive(
     :param download_dir: Output folder where dependencies will be downloaded
     :raise FetchError: If download failed
     """
-    info = extract_git_info_npm(vcs)
-    return clone_repo_pack_archive(info, download_dir)
+    return clone_repo_pack_archive(parse_git_clone_url(vcs), download_dir)
 
 
 async def async_download_with_auth(

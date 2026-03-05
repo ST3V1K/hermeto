@@ -9,9 +9,15 @@ import pytest
 
 from hermeto.core.checksum import ChecksumInfo
 from hermeto.core.config import NpmSettings
-from hermeto.core.errors import LockfileNotFound, PackageRejected, UnsupportedFeature
+from hermeto.core.errors import (
+    LockfileNotFound,
+    PackageRejected,
+    UnexpectedFormat,
+    UnsupportedFeature,
+)
 from hermeto.core.package_managers.javascript.npm.project import PackageLock
 from hermeto.core.package_managers.javascript.npm.resolver import (
+    _clone_repo_pack_archive,
     _get_npm_dependencies,
     _resolve_npm,
     _should_replace_dependency,
@@ -24,6 +30,12 @@ from hermeto.core.rooted_path import RootedPath
 
 def urlq(url: str) -> str:
     return urllib.parse.quote(url, safe=":/")
+
+
+def test_clone_repo_pack_archive_rejects_missing_ref(rooted_tmp_path: RootedPath) -> None:
+    vcs = NormalizedUrl("git+ssh://git@bitbucket.org/example-org/example-repo.git")
+    with pytest.raises(UnexpectedFormat):
+        _clone_repo_pack_archive(vcs, rooted_tmp_path)
 
 
 @pytest.mark.parametrize(

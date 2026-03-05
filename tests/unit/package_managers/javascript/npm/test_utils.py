@@ -1,11 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 import pytest
 
-from hermeto.core.errors import UnexpectedFormat
-from hermeto.core.package_managers.javascript.js_utils import NpmGitInfo
+from hermeto.core.package_managers.javascript.js_utils import GitCloneUrl, parse_git_clone_url
 from hermeto.core.package_managers.javascript.npm.utils import (
-    NormalizedUrl,
-    extract_git_info_npm,
     is_from_npm_registry,
     update_vcs_url_with_full_hostname,
 )
@@ -27,32 +24,12 @@ def test_is_from_npm_registry_can_parse_incorrect_registry_urls() -> None:
     assert not is_from_npm_registry("https://example.org/fecha.tar.gz")
 
 
-@pytest.mark.parametrize(
-    "vcs, expected",
-    [
-        (
-            (f"git+ssh://git@bitbucket.org/example-org/example-repo.git#{GIT_REF}"),
-            NpmGitInfo(
-                url="ssh://git@bitbucket.org/example-org/example-repo.git",
-                ref=GIT_REF,
-                host="bitbucket.org",
-                namespace="example-org",
-                repo="example-repo",
-            ),
-        ),
-    ],
-)
-def test_extract_git_info_npm(vcs: NormalizedUrl, expected: NpmGitInfo) -> None:
-    assert extract_git_info_npm(vcs) == expected
-
-
-def test_extract_git_info_with_missing_ref() -> None:
-    vcs = NormalizedUrl("git+ssh://git@bitbucket.org/example-org/example-repo.git")
-    expected_error = (
-        "ssh://git@bitbucket.org/example-org/example-repo.git is not valid VCS url. ref is missing."
+def test_parse_git_clone_url_from_npm_vcs() -> None:
+    vcs = f"git+ssh://git@bitbucket.org/example-org/example-repo.git#{GIT_REF}"
+    assert parse_git_clone_url(vcs) == GitCloneUrl(
+        "ssh://git@bitbucket.org/example-org/example-repo.git",
+        GIT_REF,
     )
-    with pytest.raises(UnexpectedFormat, match=expected_error):
-        extract_git_info_npm(vcs)
 
 
 @pytest.mark.parametrize(
