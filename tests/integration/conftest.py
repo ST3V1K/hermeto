@@ -13,6 +13,7 @@ from filelock import FileLock
 from git import Repo
 
 from hermeto.core.utils import copy_directory
+from tests.conftest import ENV_VAR_CLI_MAP
 from tests.integration.proxy import TEST_NEXUS_PORT, is_local_nexus_proxy_enabled
 from tests.integration.utils import DEFAULT_INTEGRATION_TESTS_REPO, TEST_SERVER_LOCALHOST
 from tests.nexusserver import DEFAULT_NEXUS_HOST, initialize_nexus
@@ -20,19 +21,6 @@ from tests.nexusserver import DEFAULT_NEXUS_HOST, initialize_nexus
 from . import utils
 
 log = logging.getLogger(__name__)
-
-_ENV_VAR_CLI_MAP = [
-    ("HERMETO_TEST_INTEGRATION_TESTS_REPO", "--hermeto-integration-tests-repo"),
-    ("HERMETO_TEST_IMAGE", "--hermeto-image"),
-    ("HERMETO_TEST_LOCAL_PYPISERVER", "--hermeto-local-pypiserver"),
-    ("HERMETO_TEST_PYPISERVER_PORT", "--hermeto-pypiserver-port"),
-    ("HERMETO_TEST_LOCAL_DNF_SERVER", "--hermeto-local-dnf-server"),
-    ("HERMETO_TEST_DNFSERVER_SSL_PORT", "--hermeto-dnfserver-ssl-port"),
-    ("HERMETO_TEST_GENERATE_DATA", "--hermeto-generate-test-data"),
-    ("HERMETO_TEST_CONTAINER_ENGINE", "--hermeto-container-engine"),
-    ("HERMETO_TEST_LOCAL_NEXUS_PROXY", "--hermeto-local-nexus-proxy"),
-    ("HERMETO_TEST_LOCAL_NEXUS_NO_CLEANUP", "--hermeto-local-nexus-no-cleanup"),
-]
 
 
 def pytest_configure(config: pytest.Config) -> None:
@@ -44,7 +32,7 @@ def pytest_configure(config: pytest.Config) -> None:
             return "1" if value else "0"
         return value
 
-    for env_var, cli_opt in _ENV_VAR_CLI_MAP:
+    for env_var, cli_opt in ENV_VAR_CLI_MAP:
         os.environ[env_var] = env_value(cli_opt)
 
 

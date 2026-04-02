@@ -5,6 +5,19 @@ import pytest
 
 from tests.integration.utils import DEFAULT_INTEGRATION_TESTS_REPO
 
+ENV_VAR_CLI_MAP = [
+    ("HERMETO_TEST_INTEGRATION_TESTS_REPO", "--hermeto-integration-tests-repo"),
+    ("HERMETO_TEST_IMAGE", "--hermeto-image"),
+    ("HERMETO_TEST_LOCAL_PYPISERVER", "--hermeto-local-pypiserver"),
+    ("HERMETO_TEST_PYPISERVER_PORT", "--hermeto-pypiserver-port"),
+    ("HERMETO_TEST_LOCAL_DNF_SERVER", "--hermeto-local-dnf-server"),
+    ("HERMETO_TEST_DNFSERVER_SSL_PORT", "--hermeto-dnfserver-ssl-port"),
+    ("HERMETO_TEST_GENERATE_DATA", "--hermeto-generate-test-data"),
+    ("HERMETO_TEST_CONTAINER_ENGINE", "--hermeto-container-engine"),
+    ("HERMETO_TEST_LOCAL_NEXUS_PROXY", "--hermeto-local-nexus-proxy"),
+    ("HERMETO_TEST_LOCAL_NEXUS_NO_CLEANUP", "--hermeto-local-nexus-no-cleanup"),
+]
+
 
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Register custom CLI options for Hermeto integration tests."""
@@ -70,3 +83,14 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         default=os.getenv("HERMETO_TEST_LOCAL_NEXUS_NO_CLEANUP") == "1",
         help="Keep Nexus container running after tests (env: HERMETO_TEST_LOCAL_NEXUS_NO_CLEANUP=1)",
     )
+
+
+def pytest_report_header(config: pytest.Config) -> list[str]:
+    """Report effective Hermeto test configuration at the top of the test session."""
+    lines = ["Effective Hermeto test environment:"]
+    for env_var, cli_opt in ENV_VAR_CLI_MAP:
+        value = config.getoption(cli_opt)
+        if isinstance(value, bool):
+            value = "1" if value else "0"
+        lines.append(f"  {env_var}={value}")
+    return lines
