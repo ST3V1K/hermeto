@@ -36,6 +36,7 @@ dependencies = [
 ]
 [project.optional-dependencies]
 dev = [
+  "mkdocs-macros-plugin",
   "mkdocs-material",
   "mypy",
   "nox",
