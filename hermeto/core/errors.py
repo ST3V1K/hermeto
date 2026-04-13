@@ -495,3 +495,45 @@ class GitInvalidRevisionError(GitError):
 
     _exit_error: ClassVar[ExitError] = ExitError.ERR_GIT_INVALID_REVISION
     meaning: ClassVar[str] = "Invalid Git revision"
+
+
+# All errors that should propagate to the user should be registered here.
+# This is used to generate the exit codes table in the documentation.
+
+
+class PackageWithCorruptLockfileRejected(PackageRejected):
+    """Package lock file does not match package config."""
+
+    _exit_error: ClassVar[ExitError] = ExitError.ERR_PACKAGE_WITH_CORRUPT_LOCKFILE_REJECTED
+    meaning: ClassVar[str] = "Lockfile does not match package config"
+
+    def __init__(self, package_path: str) -> None:
+        """Initialize the error."""
+        reason = (
+            f"{package_path} contains a Cargo.lock that does not match the corresponding Cargo.toml"
+        )
+        super().__init__(reason, solution=self.default_solution)
+
+    default_solution = (
+        "Consider reaching out to maintainer of the dependency in question to address"
+        " inconsistencies between Cargo.lock and Cargo.toml"
+    )
+
+
+class UnsatisfiableArchitectureFilter(PackageRejected):
+    """RPM architecture filter constraints cannot be satisfied by lockfile architectures."""
+
+    _exit_error: ClassVar[ExitError] = ExitError.ERR_UNSATISFIABLE_ARCHITECTURE_FILTER
+    meaning: ClassVar[str] = "Architecture filter cannot be satisfied"
+
+
+class NotV1Lockfile(PackageRejected):
+    """Indicate that a lockfile is of wrong tyrpoe."""
+
+    _exit_error: ClassVar[ExitError] = ExitError.ERR_NOT_V1_LOCKFILE
+    meaning: ClassVar[str] = "Lockfile is not Yarn v1 format"
+
+    def __init__(self, package_path: Any) -> None:
+        """Initialize a Missing Lockfile error."""
+        reason = f"{package_path} not a Yarn v1"
+        super().__init__(reason, solution=None)

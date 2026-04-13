@@ -1,19 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """RPM-specific binary package filtering."""
 
-from typing import Any, ClassVar
+from typing import Any
 
 from hermeto.core.binary_filters import BinaryPackageFilter
-from hermeto.core.errors import ExitError, PackageRejected
+from hermeto.core.errors import UnsatisfiableArchitectureFilter
 from hermeto.core.models.input import BINARY_FILTER_ALL, RpmBinaryFilters
 from hermeto.core.package_managers.rpm.redhat import LockfileArch
-
-
-class UnsatisfiableArchitectureFilter(PackageRejected):
-    """RPM architecture filter constraints cannot be satisfied by lockfile architectures."""
-
-    _exit_error: ClassVar[ExitError] = ExitError.ERR_UNSATISFIABLE_ARCHITECTURE_FILTER
-    meaning: ClassVar[str] = "Architecture filter cannot be satisfied"
 
 
 class RPMArchitectureFilter(BinaryPackageFilter):

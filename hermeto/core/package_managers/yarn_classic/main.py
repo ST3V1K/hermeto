@@ -3,12 +3,11 @@ import logging
 from collections import defaultdict
 from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, ClassVar
 
 from hermeto import APP_NAME
 from hermeto.core.errors import (
-    ExitError,
     LockfileNotFound,
+    NotV1Lockfile,
     PackageManagerError,
     PackageRejected,
 )
@@ -41,18 +40,6 @@ log = logging.getLogger(__name__)
 MIRROR_DIR = "deps/yarn-classic"
 YARN_NETWORK_TIMEOUT_MILLISECONDS = 600000
 _yarn_classic_pattern = "yarn lockfile v1"  # See [yarn_classic_trait].
-
-
-class NotV1Lockfile(PackageRejected):
-    """Indicate that a lockfile is of wrong tyrpoe."""
-
-    _exit_error: ClassVar[ExitError] = ExitError.ERR_NOT_V1_LOCKFILE
-    meaning: ClassVar[str] = "Lockfile is not Yarn v1 format"
-
-    def __init__(self, package_path: Any) -> None:
-        """Initialize a Missing Lockfile error."""
-        reason = f"{package_path} not a Yarn v1"
-        super().__init__(reason, solution=None)
 
 
 def fetch_yarn_source(request: Request) -> RequestOutput:

@@ -7,7 +7,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
-from typing import Any, ClassVar, NamedTuple
+from typing import Any, NamedTuple
 from urllib.parse import urlparse, urlunparse
 
 import tomlkit
@@ -16,11 +16,10 @@ from packageurl import PackageURL
 
 from hermeto import APP_NAME
 from hermeto.core.errors import (
-    ExitError,
     LockfileNotFound,
     NotAGitRepo,
     PackageManagerError,
-    PackageRejected,
+    PackageWithCorruptLockfileRejected,
     UnexpectedFormat,
 )
 from hermeto.core.models.input import Mode, Request
@@ -40,25 +39,6 @@ class CargoVendorResult(NamedTuple):
 
     config_template: str
     lockfile_was_generated: bool
-
-
-class PackageWithCorruptLockfileRejected(PackageRejected):
-    """Package lock file does not match package config."""
-
-    _exit_error: ClassVar[ExitError] = ExitError.ERR_PACKAGE_WITH_CORRUPT_LOCKFILE_REJECTED
-    meaning: ClassVar[str] = "Lockfile does not match package config"
-
-    def __init__(self, package_path: str) -> None:
-        """Initialize the error."""
-        reason = (
-            f"{package_path} contains a Cargo.lock that does not match the corresponding Cargo.toml"
-        )
-        super().__init__(reason, solution=self.default_solution)
-
-    default_solution = (
-        "Consider reaching out to maintainer of the dependency in question to address"
-        " inconsistencies between Cargo.lock and Cargo.toml"
-    )
 
 
 @dataclass(frozen=True)
