@@ -30,6 +30,38 @@ updates:
           - "version-update:semver-major"
           - "version-update:semver-minor"
 
+  # Integration test Dockerfiles
+  - package-ecosystem: "docker"
+    directories:
+      - "tests/integration/test_data/**/container"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "Dockerfile"
+    ignore:
+      # We must handle major.minor Go releases manually due to direct feature support
+      - dependency-name: "golang"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Node v25 stopped shipping corepack which we need
+      - dependency-name: "node"
+        update-types:
+          - "version-update:semver-major"
+      # We must handle major.minor Rust releases manually since they might introduce changes breaking tests
+      - dependency-name: "rust"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      - dependency-name: "ruby"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      - dependency-name: "python"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
