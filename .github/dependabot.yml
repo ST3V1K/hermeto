@@ -9,7 +9,9 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "docker"
-    directory: "/"
+    directories: 
+      - "/"
+      - "tests/integration/test_data/**/container"
     schedule:
       interval: "monthly"
     commit-message:
