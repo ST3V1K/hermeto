@@ -9,23 +9,25 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "docker"
-    directory: "/"
+    directories: 
+      - "/"
+      - "tests/integration/test_data/**/container"
     schedule:
       interval: "monthly"
     commit-message:
       prefix: "Dockerfile"
     ignore:
       # We must handle major.minor Go releases manually due to direct feature support
-      - dependency-name: "library/golang"
+      - dependency-name: "*golang*"
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
       # Node v25 stopped shipping corepack which we need
-      - dependency-name: "library/node"
+      - dependency-name: "*node*"
         update-types:
           - "version-update:semver-major"
       # We must handle major.minor Rust releases manually since they might introduce changes breaking tests
-      - dependency-name: "library/rust"
+      - dependency-name: "*rust*"
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
