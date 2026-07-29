@@ -9,7 +9,7 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "docker"
-    directory: "/"
+    directories: ["/", "tests/integration/test_data/bundler_e2e_missing_gemspec/container/Dockerfile"]
     schedule:
       interval: "monthly"
     commit-message:
