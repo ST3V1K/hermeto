@@ -22,7 +22,7 @@ jobs:
   versions-check:
     runs-on: ubuntu-24.04
     container:
-      image: python:3.10-alpine
+      image: python:3.10.20
 
     steps:
       # Need to install git before running the checkout action in a container

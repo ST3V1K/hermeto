@@ -52,7 +52,7 @@ jobs:
       fail-fast: false
 
     container:
-      image: python:3.10-slim
+      image: python:3.10.20
 
     steps:
       - name: Install dependencies
