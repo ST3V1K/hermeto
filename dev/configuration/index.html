@@ -9,24 +9,28 @@
       
       
       
+        <link rel="prev" href="../usage/">
+      
+      
+        <link rel="next" href="../sbom/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Hermeto</title>
+        <title>Configuration - Hermeto</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Hermeto" class="md-header__button md-logo" aria-label="Hermeto" data-md-component="logo">
+    <a href=".." title="Hermeto" class="md-header__button md-logo" aria-label="Hermeto" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -105,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Configuration
             
           </span>
         </div>
@@ -228,7 +237,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Hermeto" class="md-nav__button md-logo" aria-label="Hermeto" data-md-component="logo">
+    <a href=".." title="Hermeto" class="md-nav__button md-logo" aria-label="Hermeto" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -258,7 +267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -285,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/usage/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   
@@ -309,10 +318,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -328,6 +364,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gomod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gomod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yarn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yarn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cargo-npm-and-pnpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cargo, npm and pnpm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -339,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sbom/" class="md-nav__link">
+      <a href="../sbom/" class="md-nav__link">
         
   
   
@@ -418,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/bundler/" class="md-nav__link">
+      <a href="../bundler/" class="md-nav__link">
         
   
   
@@ -446,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cargo/" class="md-nav__link">
+      <a href="../cargo/" class="md-nav__link">
         
   
   
@@ -474,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/generic/" class="md-nav__link">
+      <a href="../generic/" class="md-nav__link">
         
   
   
@@ -502,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/gomod/" class="md-nav__link">
+      <a href="../gomod/" class="md-nav__link">
         
   
   
@@ -530,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/npm/" class="md-nav__link">
+      <a href="../npm/" class="md-nav__link">
         
   
   
@@ -558,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/pip/" class="md-nav__link">
+      <a href="../pip/" class="md-nav__link">
         
   
   
@@ -586,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/pnpm/" class="md-nav__link">
+      <a href="../pnpm/" class="md-nav__link">
         
   
   
@@ -614,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/rpm/" class="md-nav__link">
+      <a href="../rpm/" class="md-nav__link">
         
   
   
@@ -642,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/yarn_classic/" class="md-nav__link">
+      <a href="../yarn_classic/" class="md-nav__link">
         
   
   
@@ -670,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/yarn/" class="md-nav__link">
+      <a href="../yarn/" class="md-nav__link">
         
   
   
@@ -715,6 +898,143 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bundler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gomod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gomod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yarn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yarn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cargo-npm-and-pnpm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cargo, npm and pnpm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -727,8 +1047,230 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/hermetoproject/hermeto/edit/main/docs/configuration.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/hermetoproject/hermeto/raw/main/docs/configuration.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<p>Hermeto's behavior can be tuned with CLI flags, environment variables, and YAML
+config files. This page describes operating modes and available settings.</p>
+<h2 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">&para;</a></h2>
+<p>Hermeto currently supports two fetch modes. In <code>strict</code> mode, unmet input
+requirements are errors. In <code>permissive</code> mode, the same conditions produce
+warnings and Hermeto continues, however resulting SBOM may be incomplete or
+inaccurate.</p>
+<p>Set the global CLI option <code>--mode</code> to one of:</p>
+<ul>
+<li><code>strict</code> (default)</li>
+<li><code>permissive</code></li>
+</ul>
+<p>The permissive mode currently suppresses:</p>
+<ul>
+<li>Go <code>vendor</code> directory inconsistencies (see <a href="../gomod/#vendoring">gomod</a>)</li>
+<li><code>Cargo.toml</code> out of sync with <code>Cargo.lock</code></li>
+<li>non-Git sources (e.g., unpacked tarballs)</li>
+</ul>
+<p>Using permissive mode on non-Git trees is mainly useful for smoke tests; SBOM
+accuracy is reduced. See <a href="../usage/#general-process">usage</a> for Git repository
+expectations.</p>
+<p>For details on how permissive violations are tracked in SBOM output, see
+<code>docs/design/permissive-mode.md</code>.</p>
+<h2 id="config-sources">Config sources<a class="headerlink" href="#config-sources" title="Permanent link">&para;</a></h2>
+<p>Hermeto merges settings from several sources, where higher-priority sources
+override lower-priority ones (listed top to bottom):</p>
+<ol>
+<li><strong>Environment variables</strong> — prefix <code>HERMETO_</code>, use <code>__</code> for nested keys
+   (e.g., <code>HERMETO_GOMOD__DOWNLOAD_MAX_TRIES=10</code>)</li>
+<li><strong>CLI</strong> — <code>--config-file path/to/config.yaml</code></li>
+<li><strong>Config files</strong> — loaded automatically when present:</li>
+<li><code>~/.config/hermeto/config.yaml</code></li>
+<li><code>hermeto.yaml</code></li>
+<li><code>.hermeto.yaml</code></li>
+</ol>
+<p>Hermeto only supports YAML config files.</p>
+<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h2>
+<p>Some settings apply to every package manager. Others apply only to specific
+backends.</p>
+<h3 id="http"><code>http</code><a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<p>Applies to all package managers.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connect_timeout</code></td>
+<td><code>30</code></td>
+<td>Connection timeout in seconds</td>
+</tr>
+<tr>
+<td><code>read_timeout</code></td>
+<td><code>300</code></td>
+<td>Read timeout in seconds; long downloads succeed while data flows</td>
+</tr>
+<tr>
+<td><code>max_retries</code></td>
+<td><code>5</code></td>
+<td>Maximum HTTP request retries</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runtime"><code>runtime</code><a class="headerlink" href="#runtime" title="Permanent link">&para;</a></h3>
+<p>Applies to all package managers.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>concurrency_limit</code></td>
+<td><code>5</code></td>
+<td>Maximum concurrent operations</td>
+</tr>
+<tr>
+<td><code>subprocess_timeout</code></td>
+<td><code>3600</code></td>
+<td>Subprocess timeout in seconds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="proxy-settings">Proxy settings<a class="headerlink" href="#proxy-settings" title="Permanent link">&para;</a></h3>
+<p>Applies to <code>bundler</code>, <code>cargo</code>, <code>gomod</code>, <code>npm</code>, <code>pnpm</code>, and <code>yarn</code> when pulling
+dependencies through an artifact repository manager (e.g. Sonatype Nexus or
+JFrog Artifactory). The primary use of <code>proxy_login</code> and <code>proxy_password</code> is
+to authenticate with such a registry. Set <code>proxy_url</code> to its base URL. Do not
+embed credentials in the URL.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>proxy_url</code></td>
+<td><em>(unset)</em></td>
+<td>Registry base URL</td>
+</tr>
+<tr>
+<td><code>proxy_login</code></td>
+<td><em>(unset)</em></td>
+<td>Registry username (must be set together with <code>proxy_password</code>)</td>
+</tr>
+<tr>
+<td><code>proxy_password</code></td>
+<td><em>(unset)</em></td>
+<td>Registry password (must be set together with <code>proxy_login</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bundler"><code>bundler</code><a class="headerlink" href="#bundler" title="Permanent link">&para;</a></h3>
+<p>Supports the <a href="#proxy-settings">proxy settings</a> above and has no additional
+keys. Only rubygems registry dependencies are proxied; git and path
+dependencies are unaffected.</p>
+<h3 id="gomod"><code>gomod</code><a class="headerlink" href="#gomod" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>download_max_tries</code></td>
+<td><code>5</code></td>
+<td>Maximum retry attempts for Go module commands</td>
+</tr>
+<tr>
+<td><code>environment_variables</code></td>
+<td><code>{}</code></td>
+<td>Default environment variables for the gomod backend</td>
+</tr>
+</tbody>
+</table>
+<p>Go supports the <a href="#proxy-settings">proxy settings</a> above. The default
+<code>proxy_url</code> is <code>https://proxy.golang.org,direct</code>. When <code>proxy_login</code> is set,
+<code>proxy_url</code> must be a single URL (not a comma-separated list).</p>
+<h3 id="pip"><code>pip</code><a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignore_dependencies_crates</code></td>
+<td><code>false</code></td>
+<td>Legacy option for Rust-based pip dependencies; do not rely on it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="yarn"><code>yarn</code><a class="headerlink" href="#yarn" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>true</code></td>
+<td>Legacy toggle for Yarn v3 and v4 processing; do not rely on it</td>
+</tr>
+</tbody>
+</table>
+<p>Yarn v3 and v4 also support the <a href="#proxy-settings">proxy settings</a> above. Yarn
+Classic ignores this section.</p>
+<h3 id="cargo-npm-and-pnpm"><code>cargo</code>, <code>npm</code> and <code>pnpm</code><a class="headerlink" href="#cargo-npm-and-pnpm" title="Permanent link">&para;</a></h3>
+<p>These package managers support the <a href="#proxy-settings">proxy settings</a> above and
+have no additional keys.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -765,10 +1307,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.sections", "search.share", "search.suggest"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["latest"], "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.sections", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["latest"], "provider": "mike"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

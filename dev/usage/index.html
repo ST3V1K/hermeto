@@ -12,14 +12,14 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../bundler/">
+        <link rel="next" href="../configuration/">
       
       
         
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -478,6 +478,60 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -492,10 +546,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -513,8 +567,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -679,6 +733,34 @@
     
   
     pip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pnpm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pnpm
   
 
     
@@ -973,6 +1055,9 @@ can guarantee that the platform has a complete picture of all dependencies
 needed for the build. One class of hermetic build implementations is to restrict
 external network access during the build itself, requiring that all dependencies
 are declared and pre-fetched before the build occurs.</p>
+<p>Hermeto prefetches dependencies and produces an SBOM; it is not a complete
+hermetic build system. A user would need to isolate the build step
+(e.g. with containers) so it runs without network access.</p>
 <p>In order to support this class of hermetic builds, not only does Hermeto need to
 pre-fetch the dependencies, but some build flows will need additional changes
 (i.e. leveraging defined <a href="#generate-environment-variables">environment variables</a>
@@ -1000,8 +1085,9 @@ of the supported package managers.</p>
 <li><code>--output</code> the path to the directory where Hermeto will write all output
   <code>[default: ./hermeto-output]</code></li>
 <li><code>--sbom-output-type</code> the format of generated SBOM, supported values are
-  <code>cyclonedx</code> (outputs <a href="https://cyclonedx.org/docs/1.6/json">CycloneDX v1.6</a>) and <code>spdx</code> (outputs <a href="https://spdx.github.io/spdx-spec/v2.3/">SPDX v2.3</a>)
-  <code>[default: cyclonedx]</code></li>
+  <code>cyclonedx</code> (outputs <a href="https://cyclonedx.org/docs/1.6/json">CycloneDX v1.6</a>) and <code>spdx</code> (outputs <a href="https://spdx.github.io/spdx-spec/v2.3/">SPDX v2.3</a>).
+  See <a href="../sbom/">SBOM documentation</a> for structure, custom fields, and format
+  mapping. <code>[default: cyclonedx]</code></li>
 <li><code>{JSON}</code> specifies a <em>package</em> (a directory) within the repository to process</li>
 </ul>
 <p>Note that Hermeto does not auto-detect which package managers your project uses.
@@ -1016,6 +1102,8 @@ relative path is <code>.</code>.</p>
   "subpath/to/other/module", "type": "&lt;package manager&gt;"}]</code></li>
 <li>JSON object with flags: <code>{"packages": [{"path": ".", "type": "&lt;package
   manager&gt;"}], "flags": ["cgo-disable"]}</code></li>
+<li>JSON file path: <code>/path/to/input-file.json</code>, where the file contains
+  any supported JSON input</li>
 </ul>
 <p>See also <code>hermeto fetch-deps --help</code>.</p>
 <p>Using the JSON array object, multiple package managers can be used to resolve
@@ -1071,7 +1159,8 @@ with <code>hermeto merge-sboms</code></p>
 </code></pre></div>
 <p>The subcommand expects at least two SBOMs, all produced by Hermeto, and will
 exit with error otherwise. The reason for this is that Hermeto supports a
-<a href="https://github.com/hermetoproject/hermeto/blob/main/hermeto/core/models/sbom.py#L7-L13">limited set</a> of component <a href="https://cyclonedx.org/docs/1.6/json/#components_items_properties">properties</a>, and it validates that no other
+<a href="https://github.com/hermetoproject/hermeto/blob/main/hermeto/core/models/sbom.py#L7-L13">limited set</a> of component <a href="https://cyclonedx.org/docs/1.6/json/#components_items_properties">properties</a>
+(documented in <a href="../sbom/">SBOM documentation</a>), and it validates that no other
 properties exist in the SBOM. By default the result of a merge will be printed
 to stdout. To save it to a file use <code>-o</code> option</p>
 <div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>merge-sboms<span class="w"> </span>&lt;hermeto_sbom_1.json&gt;<span class="w"> </span>...<span class="w"> </span>&lt;hermeto_sbom_n.json&gt;<span class="w"> </span>-o<span class="w"> </span>&lt;merged_sbom.json&gt;
@@ -1208,7 +1297,7 @@ releases, please do NOT depend on them!</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.sections", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["latest"], "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

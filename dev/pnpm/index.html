@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../sbom/">
+        <link rel="prev" href="../pip/">
       
       
-        <link rel="next" href="../cargo/">
+        <link rel="next" href="../rpm/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>bundler - Hermeto</title>
+        <title>pnpm - Hermeto</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bundler" class="md-skip">
+        <a href="#pnpm" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              bundler
+              pnpm
             
           </span>
         </div>
@@ -426,37 +426,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    bundler
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bundler/" class="md-nav__link">
         
   
   
@@ -472,192 +445,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gems" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Gems
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bundle_cache_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_CACHE_PATH
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_DEPLOYMENT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_no_prune" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_NO_PRUNE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_VERSION
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_allow_offline_install" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_ALLOW_OFFLINE_INSTALL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_disable_version_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_DISABLE_VERSION_CHECK
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hermetic-build" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hermetic build
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unsupported-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unsupported features
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -807,10 +594,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../pnpm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pnpm
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -826,6 +640,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate environment variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inject-project-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inject project files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the image offline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -960,22 +899,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Basic usage
+        Usage
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Basic usage">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gems" class="md-nav__link">
+  <a href="#fetch-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gems
+        Fetch dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate environment variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inject-project-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inject project files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-image-offline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the image offline
       
     </span>
   </a>
@@ -984,133 +989,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bundle_cache_path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_CACHE_PATH
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_DEPLOYMENT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_no_prune" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_NO_PRUNE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_VERSION
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_allow_offline_install" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_ALLOW_OFFLINE_INSTALL
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bundle_disable_version_check" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BUNDLE_DISABLE_VERSION_CHECK
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Git dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hermetic-build" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Hermetic build
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unsupported-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unsupported features
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1131,7 +1009,7 @@
 
 
   
-    <a href="https://github.com/hermetoproject/hermeto/edit/main/docs/bundler.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/hermetoproject/hermeto/edit/main/docs/pnpm.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1140,176 +1018,129 @@
     
       
     
-    <a href="https://github.com/hermetoproject/hermeto/raw/main/docs/bundler.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/hermetoproject/hermeto/raw/main/docs/pnpm.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="bundler"><a href="https://bundler.io">Bundler</a><a class="headerlink" href="#bundler" title="Permanent link">&para;</a></h1>
+<h1 id="pnpm"><a href="https://pnpm.io">pnpm</a><a class="headerlink" href="#pnpm" title="Permanent link">&para;</a></h1>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>To use Hermeto with Bundler locally, ensure you have Ruby and Bundler installed
-on your system.</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>rubygem-bundler
+<p>Ensure both package.json and pnpm-lock.yaml are present in the project directory.</p>
+<p>The <code>lockfileVersion</code> field must be within the range of &gt;= 9.0 and &lt; 10.0. Earlier
+versions are not supported. Newer versions could introduce breaking changes to the
+lockfile format, so Hermeto might not be able to process them correctly.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>Using Hermeto locally with pnpm requires no special configuration or additional
+software (including pnpm itself). Hermeto downloads dependencies only explicitly
+declared in pnpm-lock.yaml without invoking the pnpm binary, which avoids arbitrary
+code execution during prefetch and keeps the process predictable.</p>
+<p>Make sure the file is up to date by running pnpm install. Otherwise, the hermetic
+build will likely fail.</p>
+<p>Each dependency is downloaded as a tar archive into the output directory under deps/pnpm/.
+Packages from the npm and JSR registries are stored in separate subdirectories.</p>
+<div class="highlight"><pre><span></span><code>hermeto-output/deps/pnpm/
+├── npm/
+│   ├── react-18.3.1.tgz
+│   └── ...
+├── jsr/
+│   ├── ...
 </code></pre></div>
-<p>Then ensure you have both, <strong>Gemfile</strong> and <strong>Gemfile.lock</strong> in your project
-directory. We parse the <strong>Gemfile.lock</strong> to pre-fetch all dependencies
-specified in that file.</p>
-<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
-<p>Run the following command in your terminal to pre-fetch your project's
-dependencies. The command will download all dependencies specified in the
-<strong>Gemfile.lock</strong> to the specified output directory.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path-to-your-ruby-project
-hermeto<span class="w"> </span>fetch-deps<span class="w"> </span>bundler
+<p>Hermeto modifies .npmrc and pnpm-lock.yaml to point registries and tarball URLs
+to local files in the output directory. Other settings in .npmrc are preserved.
+If the file does not exist, it is created.</p>
+<p>These updates happen automatically when calling Hermeto's inject-files command.
+See the <a href="#example">Example</a> section below.</p>
+<p>A snippet of .npmrc after modification:</p>
+<div class="highlight"><pre><span></span><code>registry=file:///tmp/hermeto-output/deps/pnpm/npm/
+@jsr:registry=file:///tmp/hermeto-output/deps/pnpm/jsr/
 </code></pre></div>
-<p>In addition, it will prepare the necessary environment variables and
-configuration files for the build phase. See the following sections for more
-information.</p>
-<h3 id="gems">Gems<a class="headerlink" href="#gems" title="Permanent link">&para;</a></h3>
-<p>Each gem has a name, version, and platform. If the platform is "ruby", it means
-that it should work on any platform Ruby runs on. Using the ruby platform means
-ignoring the current machine's platform and installing only ruby platform gems.
-As a result, gems with native extensions will be compiled from the source.</p>
-<p>However, occasionally some gems do not have a version for the ruby platform and
-are only available as pre-compiled binaries. In this case, you may need to
-enable the pre-fetching of gems for specific platforms using the <code>binary</code> field
-when running the <code>fetch-deps</code> command.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code>binary</code> field is not fully supported yet. When the <code>binary</code> field is specified,
-no platform filtering is performed. Instead, all available pre-compiled gems
-from the Gemfile.lock are downloaded, regardless of platform-specific
-requirements. See <a href="https://github.com/hermetoproject/hermeto/issues/1075">#1075</a>.</p>
-</div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p><a href="https://bundler.io">Bundler</a> uses an unorthodox system when dealing with
-<a href="https://bundler.io/v2.5/man/bundle-config.1.html#DESCRIPTION">configuration options</a>. The highest precedence is given to the config file,
-and then to the environment variables. This is a current limitation of Bundler,
-that we had to work around. We may drop the workaround if this ends up being
-addressed in future Bundler releases.</p>
-<p>The order of precedence for Bundler configuration options is as follows</p>
-<ol>
-<li>Local config (<code>&lt;project_root&gt;/.bundle/config or $BUNDLE_APP_CONFIG/config</code>)</li>
-<li>Environment variables (ENV)</li>
-<li>Global config (<code>~/.bundle/config</code>)</li>
-<li>Bundler default config</li>
-</ol>
-<p>We set the following configuration options to ensure that the build process
-works correctly</p>
-<ul>
-<li>BUNDLE_CACHE_PATH: "${output_dir}/deps/bundler"</li>
-<li>BUNDLE_DEPLOYMENT: "true"</li>
-<li>BUNDLE_NO_PRUNE: "true"</li>
-<li>BUNDLE_VERSION: "system"</li>
-<li>BUNDLE_ALLOW_OFFLINE_INSTALL: "true"</li>
-<li>BUNDLE_DISABLE_VERSION_CHECK: "true"</li>
-</ul>
-<h3 id="bundle_cache_path">BUNDLE_CACHE_PATH<a class="headerlink" href="#bundle_cache_path" title="Permanent link">&para;</a></h3>
-<p>The directory that Bundler will look into when installing gems.</p>
-<h3 id="bundle_deployment">BUNDLE_DEPLOYMENT<a class="headerlink" href="#bundle_deployment" title="Permanent link">&para;</a></h3>
-<p>Disallow changes to the <strong>Gemfile</strong>. When the <strong>Gemfile</strong> is changed and the
-lockfile has not been updated, running Bundler commands will be blocked. More
-importantly though, this makes Bundler comply with network isolated builds.
-However, this setting has a user-side implication regarding their build recipes,
-e.g. Dockerfiles[^1] and you may want to consider enforcing the installation
-path for your app explicitly with
-<a href="https://bundler.io/v2.5/man/bundle-config.1.html#LIST-OF-AVAILABLE-KEYS"><code>BUNDLE_PATH</code></a></p>
-<h3 id="bundle_no_prune">BUNDLE_NO_PRUNE<a class="headerlink" href="#bundle_no_prune" title="Permanent link">&para;</a></h3>
-<p>Leave outdated gems unpruned.</p>
-<h3 id="bundle_version">BUNDLE_VERSION<a class="headerlink" href="#bundle_version" title="Permanent link">&para;</a></h3>
-<p>The version of Bundler to use when running under the Bundler environment.</p>
-<h3 id="bundle_allow_offline_install">BUNDLE_ALLOW_OFFLINE_INSTALL<a class="headerlink" href="#bundle_allow_offline_install" title="Permanent link">&para;</a></h3>
-<p>Allow Bundler to use cached data when installing without network access.</p>
-<h3 id="bundle_disable_version_check">BUNDLE_DISABLE_VERSION_CHECK<a class="headerlink" href="#bundle_disable_version_check" title="Permanent link">&para;</a></h3>
-<p>Stop Bundler from checking if a newer Bundler version is available on rubygems.org.</p>
+<p>A snippet of pnpm-lock.yaml after modification:</p>
+<div class="highlight"><pre><span></span><code>packages:
+<span class="w"> </span> react@18.3.1:
+<span class="w"> </span>   resolution:
+<span class="w"> </span>     integrity: sha512-...
+<span class="gd">-     tarball: https://registry.npmjs.org/react/-/react-18.3.1.tgz</span>
+<span class="gi">+     tarball: react-18.3.1.tgz</span>
+</code></pre></div>
+<h2 id="sbom">SBOM<a class="headerlink" href="#sbom" title="Permanent link">&para;</a></h2>
+<p>Hermeto stores the SBOM in the output directory (hermeto-output/bom.json) with
+information about all dependencies. See the <a href="../sbom/">SBOM</a> page for more details.</p>
+<h2 id="proxy">Proxy<a class="headerlink" href="#proxy" title="Permanent link">&para;</a></h2>
+<p>Configure the proxy via a config file. See the <a href="../configuration/">Configuration</a>
+page for supported config file locations.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">pnpm</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">proxy_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://my-npm-proxy.example.com</span>
+<span class="w">  </span><span class="nt">proxy_login</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">  </span><span class="nt">proxy_password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass</span>
+</code></pre></div>
+<p>Alternatively, configure the proxy via environment variables:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">HERMETO_PNPM__PROXY_URL</span><span class="o">=</span>https://my-npm-proxy.example.com
+<span class="nb">export</span><span class="w"> </span><span class="nv">HERMETO_PNPM__PROXY_LOGIN</span><span class="o">=</span>user
+<span class="nb">export</span><span class="w"> </span><span class="nv">HERMETO_PNPM__PROXY_PASSWORD</span><span class="o">=</span>pass
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A prefetch could fail when Bundler versions differ between the build system
-and lockfile and when the former is outdated. Therefore we do not recommend
-using mismatching or outdated versions of Bundler in build systems as this
-might result in unexpected failures.*</p>
+<p>The proxy is used only for packages from the official npm registry. Other package
+sources do not work with the proxy.</p>
 </div>
-<p>To create the configuration file, run the following command.</p>
-<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>inject-files<span class="w"> </span>--for-output-dir<span class="w"> </span>/tmp/hermeto-output<span class="w"> </span>hermeto-output
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<h3 id="fetch-dependencies">Fetch dependencies<a class="headerlink" href="#fetch-dependencies" title="Permanent link">&para;</a></h3>
+<p>Fetch all dependencies from pnpm-lock.yaml and generate an SBOM.</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>fetch-deps<span class="w"> </span>pnpm
+tree<span class="w"> </span>hermeto-output/deps/pnpm
+cat<span class="w"> </span>hermeto-output/bom.json
 </code></pre></div>
-<p>You should see a log message that the file was created successfully.
-Lastly, you need to set the <code>BUNDLE_APP_CONFIG</code> environment variable to point
-to the copied configuration file.</p>
-<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>generate-env<span class="w"> </span>--output<span class="w"> </span>./hermeto.env<span class="w"> </span>--for-output-dir<span class="w"> </span>/tmp/hermeto-output<span class="w"> </span>./hermeto-output
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># cat hermeto.env</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">BUNDLE_APP_CONFIG</span><span class="o">=</span>/tmp/hermeto-output/bundler/config_override
-</code></pre></div>
-<p>The generated environment file should be sourced before running any Bundler command.</p>
-<h3 id="git-dependencies">Git dependencies<a class="headerlink" href="#git-dependencies" title="Permanent link">&para;</a></h3>
-<p>If your project includes git dependencies, Hermeto pre-fetches each repository
-as a bare clone and redirects bundler's git fetches to the local copies using
-git's
-<a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf"><code>url.insteadOf</code></a>
-mechanism. The generated environment file will include <code>GIT_CONFIG_COUNT</code>,
-<code>GIT_CONFIG_KEY_N</code>, and <code>GIT_CONFIG_VALUE_N</code> variables, for example:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">GIT_CONFIG_COUNT</span><span class="o">=</span><span class="m">2</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">GIT_CONFIG_KEY_0</span><span class="o">=</span>url.file:///tmp/hermeto-output/deps/bundler/myrepo-26487618a684/.insteadOf
-<span class="nb">export</span><span class="w"> </span><span class="nv">GIT_CONFIG_VALUE_0</span><span class="o">=</span>https://github.com/org/myrepo
-<span class="nb">export</span><span class="w"> </span><span class="nv">GIT_CONFIG_KEY_1</span><span class="o">=</span>protocol.file.allow
-<span class="nb">export</span><span class="w"> </span><span class="nv">GIT_CONFIG_VALUE_1</span><span class="o">=</span>always
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>These variables are set globally for the git process. If your build
-environment already defines <code>GIT_CONFIG_*</code> variables (e.g. from an outer CI
-configuration), the values generated by Hermeto will overwrite them.</p>
+<h3 id="generate-environment-variables">Generate environment variables<a class="headerlink" href="#generate-environment-variables" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is only required when using pnpm v11.3 and later.</p>
 </div>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
-<p>Since the local configuration takes higher precedence than the environment
-variables (except <code>BUNDLE_APP_CONFIG</code>), we copy the configuration file and
-overwrite the environment variables above. Then, we change the
-<code>BUNDLE_APP_CONFIG</code> environment variable to point to the new configuration file.</p>
-<p>It should not affect the build process unless you have multiple packages in
-your repository with different configuration settings. In that case, you may
-have to adjust the build phase accordingly.</p>
-<h2 id="hermetic-build">Hermetic build<a class="headerlink" href="#hermetic-build" title="Permanent link">&para;</a></h2>
-<p>After using the <code>fetch-deps</code>, <code>inject-files</code>, and <code>generate-env</code> commands
-to set up the directory, building the Dockerfile will produce a container with
-the application fully compiled without any network access. The build will be
-hermetic and reproducible.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">docker.io/library/ruby:latest</span>
+<p>Starting with pnpm 11.3, the <a href="https://pnpm.io/blog/releases/11.3#trustlockfile">trustLockfile</a> setting controls whether <code>pnpm install</code>
+re-applies supply-chain verification checks to lockfile entries. Hermeto injects
+pnpm-lock.yaml to point tarball URLs to local files, so this verification must be
+skipped during the hermetic build.</p>
+<p>Hermeto sets <code>PNPM_CONFIG_TRUST_LOCKFILE=true</code> for this purpose.</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>generate-env<span class="w"> </span>./hermeto-output<span class="w"> </span>--for-output-dir<span class="w"> </span>/tmp/hermeto-output<span class="w"> </span>--output<span class="w"> </span>hermeto.env
+cat<span class="w"> </span>hermeto.env
+</code></pre></div>
+<h3 id="inject-project-files">Inject project files<a class="headerlink" href="#inject-project-files" title="Permanent link">&para;</a></h3>
+<p>Modify pnpm-lock.yaml and .npmrc for the hermetic build.</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>inject-files<span class="w"> </span>./hermeto-output<span class="w"> </span>--for-output-dir<span class="w"> </span>/tmp/hermeto-output
+git<span class="w"> </span>diff
+</code></pre></div>
+<h3 id="build-the-image-offline">Build the image offline<a class="headerlink" href="#build-the-image-offline" title="Permanent link">&para;</a></h3>
+<p>This example uses <a href="../generic/">generic</a> backend artifact to install a specific
+version of pnpm using <code>npm</code> binary. There is an <a href="https://pnpm.io/docker#official-pnpm-base-image">official pnpm base image</a>, but
+without <code>node</code> runtime and no tags for pnpm v10. Unofficial images on Docker Hub
+are also an option.</p>
+<p>Dockerfile:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">docker.io/library/node:24</span>
+
+<span class="c"># ...</span>
+
+<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>/tmp/hermeto-output/deps/generic/pnpm-11.x.y.tgz
 
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
 
-<span class="k">COPY</span><span class="w"> </span>Gemfile<span class="w"> </span>.
-<span class="k">COPY</span><span class="w"> </span>Gemfile.lock<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>/tmp/hermeto.env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pnpm<span class="w"> </span>install
 
-...
-
-<span class="k">RUN</span><span class="w"> </span>.<span class="w"> </span>/tmp/hermeto.env<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bundle<span class="w"> </span>install
-
-...
+<span class="c"># ...</span>
 </code></pre></div>
-<p>Assuming <code>hermeto-output</code> and <code>hermeto.env</code> are in the same directory as the
-Dockerfile, build the image with the following command</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using pnpm v10, you can omit sourcing hermeto.env and the volume mount in
+the command below.</p>
+</div>
 <div class="highlight"><pre><span></span><code>podman<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--volume<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>realpath<span class="w"> </span>./hermeto-output<span class="k">)</span><span class="s2">&quot;</span>:/tmp/hermeto-output:Z<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--volume<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>realpath<span class="w"> </span>./hermeto.env<span class="k">)</span><span class="s2">&quot;</span>:/tmp/hermeto.env:Z<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--network<span class="w"> </span>none<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tag<span class="w"> </span>my-ruby-app
+<span class="w">  </span>--tag<span class="w"> </span>pnpm-app
 </code></pre></div>
-<h2 id="unsupported-features">Unsupported features<a class="headerlink" href="#unsupported-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li>checksum validation (blocked by pending official support)</li>
-<li>downloading the Bundler version specified in the <strong>Gemfile.lock</strong></li>
-<li>reporting development dependencies</li>
-<li>plugins</li>
-</ul>
-<p>[^1] <code>BUNDLE_DEPLOYMENT</code> enforces <a href="https://www.bundler.cn/man/bundle-install.1.html#DEPLOYMENT-MODE">deployment mode</a> which is essentially
-vendoring your application and its dependencies. In other words, deployment will
-install your application to a local <code>vendor/bundle</code> directory instead of using
-the standard system-wide location. This is currently the only way of forcing
-bundler to respect and use the offline package cache during hermetic builds.
-Note that the deployment mode doesn't play nicely with other installation flags
-and so trying to use <code>--local</code> with your <code>bundle install</code> command in your
-Dockerfile won't take effect, consider <code>BUNDLE_PATH</code> instead.</p>
+<p>For more detailed instructions, see the <a href="../usage/">Usage</a> page or run <code>hermeto --help</code>.</p>
 
 
 

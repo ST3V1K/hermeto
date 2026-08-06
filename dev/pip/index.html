@@ -12,14 +12,14 @@
         <link rel="prev" href="../npm/">
       
       
-        <link rel="next" href="../rpm/">
+        <link rel="next" href="../pnpm/">
       
       
         
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -318,6 +318,60 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SBOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -336,10 +390,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -357,8 +411,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1046,6 +1100,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pnpm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pnpm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1920,13 +2002,13 @@ URL instead, if possible</p>
 commit hash.</p>
 <p><em>Hermeto does not support PEP 440 commit hashes in the url fragment (the <code>#</code>
 part), only directly after <code>@</code>.</em></p>
-<blockquote>
-<p><strong>NOTE</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>It's impossible to craft a requirements.txt file that would download
 dependencies from both https urls and git urls. Hermeto requires hashes for
 https. Using one --hash makes pip require hashes for everything. Pip does not
 support hashes for git dependencies. Please use https urls instead.</p>
-</blockquote>
+</div>
 <h3 id="supported-options">Supported options<a class="headerlink" href="#supported-options" title="Permanent link">&para;</a></h3>
 <p>Requirements files support some <code>pip install</code> options - refer to the
 <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/#supported-options">Pip docs</a>.</p>
@@ -1937,16 +2019,21 @@ supported.</p>
 <h5 id="-index-url"><a href="https://pip.pypa.io/en/stable/cli/pip_install/#install-index-url"><code>--index-url</code></a><a class="headerlink" href="#-index-url" title="Permanent link">&para;</a></h5>
 <p><em>Supported since v0.8.0.</em></p>
 <p>Make Hermeto download packages from the specified Python Package Index server.</p>
-<blockquote>
-<p><strong>NOTE</strong></p>
 <p>Applies to all the packages (and only the packages) from the file which
 contains the <code>--index-url</code> option. If file A contains <code>--index-url</code> and file B
-does not, Hermeto will download the packages declared in B from the default
-index server (<code>https://pypi.org/simple</code>).</p>
-</blockquote>
-<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> <strong>Do not include credentials in the index url.</strong> If needed, provide
-authentication via
-<a href="https://pip.pypa.io/en/stable/topics/authentication/#netrc-support">a <strong>.netrc</strong> file</a>.</p>
+does not, Hermeto will download the packages declared in B from the
+<code>PIP_INDEX_URL</code> environment variable (if set) or the default index server
+(<code>https://pypi.org/simple</code>).</p>
+<p>The precedence follows
+<a href="https://pip.pypa.io/en/stable/topics/configuration/#environment-variables">pip's own configuration precedence</a>:</p>
+<div class="highlight"><pre><span></span><code>requirements.txt --index-url  &gt;  PIP_INDEX_URL env var  &gt;  PyPI default
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not include credentials in the index url. If needed, provide authentication
+via a <a href="https://pip.pypa.io/en/stable/topics/authentication/#netrc-support">.netrc</a>
+file.</p>
+</div>
 <h5 id="-require-hashes"><a href="https://pip.pypa.io/en/stable/cli/pip_install/#install-require-hashes"><code>--require-hashes</code></a><a class="headerlink" href="#-require-hashes" title="Permanent link">&para;</a></h5>
 <p>Enables hash-checking mode. Typically redundant, since the presence of any
 <code>--hash</code> option enables hash-checking mode as well.</p>
@@ -2142,11 +2229,11 @@ download all the PEP 517 build dependencies before the build starts.</p>
 <p>Hermeto requires a fully resolved requirements-build.txt to do this. The file
 follows the same rules as requirements.txt, but contains build dependencies
 rather than runtime dependencies.</p>
-<blockquote>
-<p><strong>NOTE</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>This file must contain all the transitive build dependencies of each of your
 transitive runtime dependencies (you are installing dependencies from source).</p>
-</blockquote>
+</div>
 <p>We recommend the <a href="https://pypi.org/project/pybuild-deps">pybuild-deps</a> package to generate the requirements-build.txt
 file. It will automatically generate build requirements from your
 requirements.txt file.</p>
@@ -2424,7 +2511,7 @@ these steps for you.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.sections", "search.share", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["latest"], "provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
