@@ -1,0 +1,92 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:monthly"
+  ],
+  // Allow scanning tests/ Containerfiles
+  // (https://github.com/hermetoproject/hermeto/issues/1681)
+  "ignorePresets": [
+    ":ignoreModulesAndTests"
+  ],
+  "enabledManagers": [
+    "dockerfile",
+    "github-actions"
+  ],
+  "packageRules": [
+    {
+      "description": "Weekly GitHub Actions updates",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "extends": [
+        "schedule:weekly"
+      ]
+    },
+    // Go: handle major.minor releases manually due to direct feature support
+    // Rust: handle major.minor releases manually since they might break tests
+    {
+      "description": "Disable golang and rust major and minor updates in production Dockerfile",
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "matchPackageNames": [
+        "**/golang",
+        "**/rust"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false
+    },
+    // Node v25 stopped shipping corepack which we need
+    {
+      "description": "Limit node to versions below 25 in production Dockerfile",
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "matchPackageNames": [
+        "**/node"
+      ],
+      "allowedVersions": "<25"
+    },
+    // Build and CI use the lowest supported Python (requires-python >=3.10)
+    {
+      "description": "Keep Python 3.10 pins on the 3.10 line",
+      "matchPackageNames": [
+        "**/python",
+        "python",
+        "actions/python-versions"
+      ],
+      "matchCurrentVersion": "/^3\\.10/",
+      "allowedVersions": "/^3\\.10/"
+    },
+    // Test Containerfiles (https://github.com/hermetoproject/hermeto/issues/1681):
+    // patch-only on pinned images; all test image bumps share one PR.
+    {
+      "description": "Disable major and minor updates in test Containerfiles",
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchFileNames": [
+        "**/tests/**"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Group all test Containerfile updates",
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchFileNames": [
+        "**/tests/**"
+      ],
+      "groupName": "test Containerfiles"
+    }
+  ]
+}
