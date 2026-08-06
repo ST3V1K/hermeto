@@ -68,6 +68,63 @@ updates:
           - "version-update:semver-major"
           - "version-update:semver-minor"
 
+  - package-ecosystem: "docker"
+    directories:
+      # directories globs match directories, not file paths. In each matched
+      # directory Dependabot picks up any filename containing "dockerfile" or
+      # "containerfile" (case-insensitive), including Containerfile.ruby33.
+      - "tests/integration/*/scenarios/*/in"
+      - "tests/integration/test_data/*/container"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "Dockerfile"
+    groups:
+      test-docker-images:
+        patterns:
+          - "*"
+    ignore:
+      # We must handle major.minor Go releases manually due to direct feature support
+      - dependency-name: "golang"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Node v25 stopped shipping corepack which we need
+      - dependency-name: "node"
+        update-types:
+          - "version-update:semver-major"
+      # We must handle major.minor Rust releases manually since they might introduce changes breaking tests
+      - dependency-name: "rust"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Bundler e2e pins specific Ruby majors (3.3 / 4.0)
+      - dependency-name: "ruby"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Pip e2e pins specific Python versions (3.8 / 3.12)
+      - dependency-name: "python"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Maven e2e pins the Maven + JDK combo in the image tag
+      - dependency-name: "maven"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Generic Maven e2e pins a specific JDK major
+      - dependency-name: "eclipse-temurin"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # Generic e2e pins alpine major (:3)
+      - dependency-name: "alpine"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      - dependency-name: "fedora-minimal"
+
   - package-ecosystem: "pip"
     directory: "/"
     schedule:

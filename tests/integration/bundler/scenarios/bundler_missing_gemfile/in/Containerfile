@@ -1,4 +1,4 @@
-FROM docker.io/library/ruby:latest
+FROM mirror.gcr.io/ruby:latest
 
 RUN if curl -IsS www.google.com; then echo "Has network access!"; exit 1; fi
 
