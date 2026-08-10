@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:monthly",
+    ":enableVulnerabilityAlerts"
+  ],
+  "ignorePresets": [
+    ":ignoreModulesAndTests"
+  ],
+  "packageRules": [
+    {
+      "description": "Disable vulnerability alerts for test dependencies",
+      "matchFileNames": [
+        "tests/**"
+      ],
+      "vulnerabilityAlerts": {
+        "enabled": false
+      }
+    }
+  ]
+}
