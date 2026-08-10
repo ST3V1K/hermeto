@@ -1,0 +1,136 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:monthly",
+    ":enableVulnerabilityAlerts"
+  ],
+  "ignorePresets": [
+    ":ignoreModulesAndTests"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "dockerfile",
+    "pip_requirements"
+  ],
+  "packageRules": [
+    {
+      "description": "Weekly GitHub Actions updates",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "extends": [
+        "schedule:weekly"
+      ],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "Disable Python updates in GitHub Actions",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchDepNames": [
+        "python"
+      ],
+      "enabled": false
+    },
+    // Go: handle major.minor releases manually due to direct feature support
+    // Rust: handle major.minor releases manually since they might break tests
+    {
+      "description": "Disable golang and rust major and minor updates in production Dockerfile",
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "matchPackageNames": [
+        "**/golang",
+        "**/rust"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false
+    },
+    // Node v25 stopped shipping corepack which we need
+    {
+      "description": "Limit node to versions below 25 in production Dockerfile",
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "matchPackageNames": [
+        "**/node"
+      ],
+      "allowedVersions": "<25"
+    },
+    {
+      "description": "Group production Dockerfile updates",
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "groupName": "production Dockerfile"
+    },
+    {
+      "description": "Disable Python updates",
+      "matchManagers": [
+        "pip_requirements"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Group Python minor and patch updates",
+      "matchManagers": [
+        "pip_requirements"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "enabled": true,
+      "groupName": "minor and patch Python dependencies"
+    },
+    {
+      "description": "Disable updates on pydantic-core",
+      "matchManagers": [
+        "pip_requirements"
+      ],
+      "matchPackageNames": [
+        "pydantic-core"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Limit createrepo-c to versions below 1.2.2",
+      "matchManagers": [
+        "pip_requirements"
+      ],
+      "matchPackageNames": [
+        "createrepo-c"
+      ],
+      "allowedVersions": "<1.2.2"
+    },
+    {
+      "description": "Disable updates on test dependencies",
+      "matchFileNames": [
+        "tests/**"
+      ],
+      "vulnerabilityAlerts": {
+        "enabled": false
+      },
+      "enabled": false
+    },
+    {
+      "description": "Group all test Containerfile updates",
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchFileNames": [
+        "tests/**"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "enabled": true,
+      "groupName": "test Containerfiles"
+    }
+  ]
+}
