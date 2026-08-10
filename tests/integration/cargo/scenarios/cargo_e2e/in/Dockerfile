@@ -6,7 +6,7 @@ WORKDIR /source
 
 RUN cargo build --release
 
-FROM registry.fedoraproject.org/fedora-minimal:39
+FROM registry.fedoraproject.org/fedora-minimal:45
 
 COPY --from=builder /source/target/release/rustic /bin/rustic
 
