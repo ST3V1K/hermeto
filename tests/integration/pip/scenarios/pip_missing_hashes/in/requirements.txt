@@ -6,7 +6,7 @@ charset-normalizer==3.4.2
     # via requests
 idna==3.10
     # via requests
-requests==2.32.4
+requests==2.33.0
     # via test (pyproject.toml)
 urllib3==2.5.0
     # via requests
