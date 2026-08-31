@@ -131,7 +131,7 @@ def must_match_any_checksum(
 
     for algorithm, expected_digests in _group_by_algorithm(expected_checksums).items():
         if algorithm in SUPPORTED_ALGORITHMS:
-            digest = _get_hexdigest(file_path, algorithm, chunk_size)
+            digest = get_hexdigest(file_path, algorithm, chunk_size)
         else:
             digest = None
 
@@ -152,7 +152,8 @@ def _group_by_algorithm(checksums: Iterable[ChecksumInfo]) -> dict[str, set[str]
     return digests_by_algorithm
 
 
-def _get_hexdigest(file_path: StrPath, algorithm: str, chunk_size: int) -> str:
+def get_hexdigest(file_path: StrPath, algorithm: str, chunk_size: int = 10240) -> str:
+    """Return the hexadecimal digest of a file for the requested algorithm."""
     with open(file_path, "rb") as f:
         hasher = hashlib.new(algorithm)
         while chunk := f.read(chunk_size):

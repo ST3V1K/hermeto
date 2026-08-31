@@ -4,7 +4,12 @@ from typing import Literal
 
 import pytest
 
-from hermeto.core.checksum import SUPPORTED_ALGORITHMS, ChecksumInfo, must_match_any_checksum
+from hermeto.core.checksum import (
+    SUPPORTED_ALGORITHMS,
+    ChecksumInfo,
+    get_hexdigest,
+    must_match_any_checksum,
+)
 from hermeto.core.errors import ChecksumVerificationFailed, PackageRejected
 
 FILE_CONTENT = "Beetlejuice! Beetlejuice! Beetlejuice!"
@@ -26,6 +31,14 @@ AlgorithmName = Literal["sha256", "sha512", "md5"]
 def correct(algorithm: AlgorithmName) -> ChecksumInfo:
     digest = {"sha256": SHA256, "sha512": SHA512, "md5": MD5}[algorithm]
     return ChecksumInfo(algorithm, digest)
+
+
+@pytest.mark.parametrize("algorithm", ["sha256", "sha512", "md5"])
+def test_get_hexdigest(algorithm: AlgorithmName, tmp_path: Path) -> None:
+    path = tmp_path / "spells.txt"
+    path.write_text(FILE_CONTENT)
+
+    assert get_hexdigest(path, algorithm) == correct(algorithm).hexdigest
 
 
 def wrong(algorithm: AlgorithmName) -> ChecksumInfo:
