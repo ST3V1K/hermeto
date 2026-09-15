@@ -403,6 +403,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inspecting-active-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting active configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#settings" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -930,6 +941,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inspecting-active-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting active configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#settings" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1085,6 +1107,10 @@ inaccurate.</p>
 <li>Go <code>vendor</code> directory inconsistencies (see <a href="../gomod/#vendoring">gomod</a>)</li>
 <li><code>Cargo.toml</code> out of sync with <code>Cargo.lock</code></li>
 <li>non-Git sources (e.g., unpacked tarballs)</li>
+<li>Yarn Berry plain git dependencies (see <a href="../yarn/#git-dependencies">yarn</a>);
+  strict mode rejects them because <code>package.json</code> and <code>yarn.lock</code> must be
+  rewritten. Patched git dependencies and git dependencies that select a
+  workspace inside the cloned repository fail in both modes</li>
 </ul>
 <p>Using permissive mode on non-Git trees is mainly useful for smoke tests; SBOM
 accuracy is reduced. See <a href="../usage/#general-process">usage</a> for Git repository
@@ -1104,6 +1130,19 @@ override lower-priority ones (listed top to bottom):</p>
 <li><code>.hermeto.yaml</code></li>
 </ol>
 <p>Hermeto only supports YAML config files.</p>
+<h2 id="inspecting-active-configuration">Inspecting active configuration<a class="headerlink" href="#inspecting-active-configuration" title="Permanent link">&para;</a></h2>
+<p>Use <code>hermeto config</code> to display the effective configuration after all sources
+have been merged. Each field is annotated with its corresponding environment
+variable name, and values that differ from defaults are marked with <code>(*)</code>.</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>config
+</code></pre></div>
+<p>To show only values that differ from defaults:</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>config<span class="w"> </span>--diff
+</code></pre></div>
+<p>By default, sensitive fields such as <code>proxy_password</code> are redacted. To reveal
+them, pass <code>--raw</code>:</p>
+<div class="highlight"><pre><span></span><code>hermeto<span class="w"> </span>config<span class="w"> </span>--raw
+</code></pre></div>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h2>
 <p>Some settings apply to every package manager. Others apply only to specific
 backends.</p>
